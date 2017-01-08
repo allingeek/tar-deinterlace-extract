@@ -10,6 +10,8 @@ A native Go CLI tool for extracting files from an interlaced tar file (regular o
 
 ## Examples
 
+    cat 1.txt
+    # first file.
     tar tf input.tar
     # 1.txt
     # 2.txt
