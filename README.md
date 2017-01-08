@@ -1,4 +1,4 @@
-# tar-deinterlace-extract
+# tar-demux
 
 A native Go CLI tool for extracting files from an interlaced tar file (regular or STDIN).
 
@@ -8,9 +8,9 @@ I think allowing duplicate named entries makes tar feel more like a chunked file
 
 ## Notes
 
-1. tar-deinterlace-extract appends file chunks in the order they are encountered in the archive.
-2. tar-deinterlace-extract will append contents of the archive to existing files on disk.
-3. tar-deinterlace-extract writes nothing to STDOUT (terminates a pipeline).
+1. tar-demux appends file chunks in the order they are encountered in the archive.
+2. tar-demux will append contents of the archive to existing files on disk.
+3. tar-demux writes nothing to STDOUT (terminates a pipeline).
 
 ## Todos
 
@@ -24,13 +24,13 @@ I think allowing duplicate named entries makes tar feel more like a chunked file
     tar tf input.tar
     # 1.txt
     # 2.txt
-    tar-stream-merge <(cat input.tar) <input.tar > double.tar
+    tar-mux <(cat input.tar) <input.tar > double.tar
     tar tf double.tar
     # 1.txt
     # 2.txt
     # 1.txt
     # 2.txt
-    tar-deinterlace-extract < double.tar
+    tar-demux < double.tar
     ls
     # 1.txt 2.txt
     cat 1.txt
