@@ -24,13 +24,13 @@ I think allowing duplicate named entries makes tar feel more like a chunked file
     tar tf input.tar
     # 1.txt
     # 2.txt
-    tar-stream-merge-darwin64 <(cat input.tar) <input.tar > double.tar
+    tar-stream-merge <(cat input.tar) <input.tar > double.tar
     tar tf double.tar
     # 1.txt
     # 2.txt
     # 1.txt
     # 2.txt
-    tar-deinterlace-extract-darwin64 < double.tar
+    tar-deinterlace-extract < double.tar
     ls
     # 1.txt 2.txt
     cat 1.txt
